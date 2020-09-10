@@ -11,7 +11,7 @@ const itemToPlugin = (context, item, name) => {
 	return new SingleEntryPlugin(context, item, name)
 }
 
-class devOnDemandWebpackPlugin {
+class DevOnDemandWebpackPlugin {
 
   constructor (options) {
     this.options = Object.assign({}, DefaultOptions, options)
@@ -22,7 +22,7 @@ class devOnDemandWebpackPlugin {
     // entryOption为SyncBailHook
     // 返回undefined，则走「EntryOptionPlugin」的默认处理
     // 返回true，则中断webpack内置「EntryOptionPlugin」对entry的处理，由插件进行处理
-    compiler.hooks.entryOption.tap('devOnDemandWebpackPlugin', (context, entry) => {
+    const entryOptionHook = (context, entry) => {
       const { defaultKeywords, separator, command } = this.options
       const argv = getCLIArgv(command.key, command.alias)
       if (!argv || !Utils.isObject(entry)) {
@@ -39,8 +39,18 @@ class devOnDemandWebpackPlugin {
       })
       // TODO 过滤「html-webpack-plugin」，预计构建速度可以提升1-2秒
       return true
-    })
+    }
+
+    if (compiler.hooks && compiler.hooks.entryOption) {
+      compiler.hooks.entryOption.tap(this.constructor.name, (context, entry) => {
+        return entryOptionHook(context, entry)
+      })
+    } else {
+      compiler.plugin('entry-option', (context, entry) => {
+        return entryOptionHook(context, entry)
+      })
+    }
   }
 }
 
-module.exports = devOnDemandWebpackPlugin
+module.exports = DevOnDemandWebpackPlugin

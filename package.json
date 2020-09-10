@@ -1,10 +1,11 @@
 {
   "name": "dev-on-demand-webpack-plugin",
   "version": "0.1.0",
-  "description": "dev on demand",
+  "description": "dev on demand with webpack",
   "main": "dist/index.js",
   "files": [
-    "dist/"
+    "dist/",
+    "src/"
   ],
   "scripts": {
     "build": "babel src -d dist",
@@ -21,6 +22,9 @@
   ],
   "author": "qgr@winbaoxian.com",
   "license": "MIT",
+  "bugs": "https://github.com/qiuguorong/dev-on-demand-webpack-plugin/issues",
+  "homepage": "https://github.com/qiuguorong/dev-on-demand-webpack-plugin",
+  "repository": "https://github.com/qiuguorong/dev-on-demand-webpack-plugin.git",
   "peerDependencies": {
     "webpack": "*"
   },
