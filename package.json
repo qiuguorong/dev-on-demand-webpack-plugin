@@ -1,6 +1,6 @@
 {
   "name": "dev-on-demand-webpack-plugin",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "dev on demand",
   "main": "dist/index.js",
   "files": [
