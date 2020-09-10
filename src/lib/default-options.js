@@ -2,7 +2,7 @@ module.exports = {
   defaultKeywords: [],
   separator: ',',
   command: {
-    argv: 'page',
-    alias: 'p'
+    key: 'p',
+    alias: 'page'
   }
 }

@@ -20,6 +20,15 @@ const utils = {
       }
     })
     return isMatch
+  },
+  getFilterEntry (entry, keywords) {
+    const filterEntry = {}
+    Object.keys(entry).forEach(chunk => {
+      if (this.isChunkOrPathMatchKeyWords(chunk, keywords)) {
+        filterEntry[chunk] = entry[chunk]
+      }
+    })
+    return filterEntry
   }
 }
 

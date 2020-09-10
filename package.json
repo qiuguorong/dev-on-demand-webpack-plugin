@@ -9,6 +9,7 @@
   "scripts": {
     "build": "babel src -d dist",
     "lint": "eslint src",
+    "test": "jest",
     "commit": "cz"
   },
   "keywords": [
@@ -30,10 +31,14 @@
     "@commitlint/cli": "^9.1.2",
     "@commitlint/config-conventional": "^9.1.2",
     "commitizen": "^4.2.1",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.8.1",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-node": "^11.1.0",
+    "glob": "^7.1.6",
     "husky": "^4.3.0",
+    "jest": "^26.4.2",
+    "lodash": "^4.17.20",
     "webpack": "^4.44.1"
   },
   "dependencies": {
@@ -43,6 +48,11 @@
     "hooks": {
       "pre-commit": "npm run lint",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
     }
   }
 }
