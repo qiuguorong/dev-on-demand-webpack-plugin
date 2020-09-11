@@ -74,7 +74,7 @@ npm run dev -p=keyword1|keyword2
 
 ## command
 
-类型：`Object` 默认值：`{ key: 'p', alias: 'page' }`
+类型：`Object` 默认值：`{ key: 'page', alias: 'p' }`
 
 CLI命令行参数与别名
 
@@ -84,8 +84,8 @@ module.exports = {
   plugins: {
     new DevOnDemand({
       command: {
-        key: 'o',
-        alias: 'options'
+        key: 'options',
+        alias: 'o'
       }
     })
   },

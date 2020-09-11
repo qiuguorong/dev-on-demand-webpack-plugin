@@ -7,8 +7,8 @@ const yargs = require('yargs')
 const getCLIArgv = function (key, alias) {
   const argv = yargs.alias(key, alias).argv
   let _argvPage = ''
-  if (typeof(argv[alias]) === 'string' || typeof(argv[alias]) === 'number') {
-    _argvPage = argv[alias]
+  if (typeof(argv[key]) === 'string' || typeof(argv[key]) === 'number') {
+    _argvPage = argv[key]
   } else if(argv._.length > 0) {
     _argvPage = argv._[0]
   } else if(argv['=']) {
